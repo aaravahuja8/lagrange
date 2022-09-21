@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NBGGL9V');</script>
+<!-- End Google Tag Manager -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>High Degree Polynomial Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A calculator to solve high degree polynomial equations" />
+    <link rel="stylesheet" href="csspolynomials.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <script src="calculationsp.js"></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBGGL9V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="w3-container">
+        <div class="w3-card-4">
+          <div class="w3-container w3-green">
+            <a href="../"><h4>Home</h4></a>
+            <h2>High Degree Polynomial Solver</h2>
+          </div>
+        <div class="w3-container">
+        <br>
+        <p>This is a simple calculator which will solve polynomial equations of high degrees/orders (up to 20). Just select the degree of your polynomial and input the appropriate coefficients to find all the real and imaginary roots of the equation.</p>
+        <br>
+        <label>Degree/Order of the Polynomial:</label>
+        <select class="box" id="degree" onchange="UpdateDegree()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+        </select>
+        <div id="inputs">
+        </div>
+        <button onclick="Calculate()">Calculate</button>
+        <button id="clear" onclick="Clear()">Clear</button>
+        <div id="outputs">
+        </div>
+        <br>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

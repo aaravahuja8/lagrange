@@ -1,0 +1,38 @@
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.textbox {
+  width:50%;
+  white-space:nowrap;
+  overflow-x:auto;
+  display:inline-block;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.outputo {
+  display: inline-block;
+  margin-left: 30%;
+}
+
+.output, .outputl {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+}
+
+#stability {
+  margin-left: 32%;
+}
+
+#clear {
+  margin-left: 30px;
+}

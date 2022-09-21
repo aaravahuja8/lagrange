@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NBGGL9V');</script>
+<!-- End Google Tag Manager -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Orbit Shape Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A calculator to model and get details/parameters of an orbit such as eccentricity, shape, velocity, speed, period, or distances" />
+    <link rel="stylesheet" href="cssorbits.css" />
+    <script src="calculationso.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBGGL9V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="">
+        <div class="">
+          <div class="">
+            <a href="../"><h4>Home</h4></a>
+            <h2>Orbit Shape Calculator</h2>
+          </div>
+          <div class="">
+            <br>
+            <p>This is a calculator which will let you input values to project an object into an orbit. It will calculate all of the orbit's details and show you a diagram of the shape of the orbit. (note: it assumes M1>>M2)</p>
+            <br>
+            <div class="customization">
+              <p>
+                <label class="names" style="margin-left: 0px;">Choose a preset orbit:</label>
+                <select class="box" id="preset" onchange="Calculate()">
+                  <option value="none">None</option>
+                  <option value="sunearth">Sun-Earth</option>
+                  <option value="earthmoon">Earth-Moon</option>
+                  <option value="sunmars">Sun-Mars</option>
+                  <option value="sunvenus">Sun-Venus</option>
+                  <option value="sunjupiter">Sun-Jupiter</option>
+                  <option value="sunmercury">Sun-Mercury</option>
+                  <option value="sunsaturn">Sun-Saturn</option>
+                  <option value="sunuranus">Sun-Uranus</option>
+                  <option value="sunneptune">Sun-Neptune</option>
+                  <option value="sunpluto">Sun-Pluto</option>
+                  <option value="sunhalley">Sun-Halley's Comet</option>
+                  <option value="sunoumuamua">Sun-'Oumuamua</option>
+                </select>
+                <br>
+                <label class="names">Name Object 1: </label>
+                <input class="put textbox" type="text" id="name1" onchange="Calculate()" />
+                <br>
+                <label class="names">Name Object 2: </label>
+                <input class="put textbox" type="text" id="name2" onchange="Calculate()" />
+              </p>
+            </div>
+            <br>
+            <div id="diagram" class="jxgbox"></div>
+            <script type="text/javascript">
+              var board = JXG.JSXGraph.initBoard('diagram', {boundingbox: [-10, 10, 10, -10], axis:false});
+            </script>
+            <br>
+            <p>Note: Please make sure the preset is set to "None" before changing these values.</p>
+            <br>
+            <p>
+                <label>Velocity</label><br>
+                <input class="put textbox" type="text" id="velocity" onchange="Calculate()" />
+                <select class="box" id="unitv" onchange="Calculate()">
+                    <option value="m/s">m/s</option>
+                    <option value="km/s">km/s</option>
+                    <option value="km/h">km/h</option>
+                    <option value="cm/s">cm/s</option>
+                    <option value="ft/s">ft/s</option>
+                    <option value="mi/s">mi/s</option>
+                    <option value="mi/h">mi/h</option>
+                    <option value="mach">mach</option>
+                    <option value="c">c</option>
+                </select>
+            </p>
+            <p>
+                <label>Distance</label><br>
+                <input class="put textbox" type="text" id="radius" onchange="Calculate()" />
+                <select class="box" id="unitr" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+            </p>
+            <p>
+              <label>Angle of projection from radius</label><br>
+              <input class="put textbox" type="text" id="angle" value="90" onchange="Calculate()" />&deg;
+            </p>
+            <p>
+                <label>Mass of Object 1</label><br>
+                <input class="put textbox" type="text" id="mass1" onchange="Calculate()" />
+                <select class="box" id="unit1" onchange="Calculate()" >
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                  <option value="lb">lb</option>
+                  <option value="ton">metric ton</option>
+                  <option value="MSun">M_Sun</option>
+                  <option value="MEarth">M_Earth</option>
+                  <option value="MMoon">M_Moon</option>
+                  <option value="MGal">M_Galaxy</option>
+                </select>
+            </p>
+            <p>
+                <label>Mass of Object 2</label><br>
+                <input class="put textbox" type="text" id="mass2" onchange="Calculate()" />
+                <select class="box" id="unit2" onchange="Calculate()">
+                  <option value="kg">kg</option>
+                  <option value="g">g</option>
+                  <option value="lb">lb</option>
+                  <option value="ton">metric ton</option>
+                  <option value="MSun">M_Sun</option>
+                  <option value="MEarth">M_Earth</option>
+                  <option value="MMoon">M_Moon</option>
+                  <option value="MGal">M_Galaxy</option>
+                </select>
+            </p>
+            <br>
+            <button onclick="Calculate()">Calculate</button>
+            <button id="clear" onclick="Clear()">Clear</button>
+            <br><br>
+            <div class="output1">
+                <p class="output"><label id="e">Eccentricity: </label>
+                </p>
+                <br>
+                <p class="output"><label id="s">Shape: </label>
+                </p>
+                <br>
+                <p class="output"><label id="v">Escape Velocity: </label>
+                  <select class="box" id="outputve" onchange="Calculate()">
+                    <option value="m/s">m/s</option>
+                    <option value="km/s">km/s</option>
+                    <option value="km/h">km/h</option>
+                    <option value="cm/s">cm/s</option>
+                    <option value="ft/s">ft/s</option>
+                    <option value="mi/s">mi/s</option>
+                    <option value="mi/h">mi/h</option>
+                    <option value="mach">mach</option>
+                    <option value="c">c</option>
+                  </select>
+                </p>
+                <br>
+                <p class="output"><label id="p">Velocity required for circular orbit: </label>
+                  <select class="box" id="outputvp" onchange="Calculate()">
+                    <option value="m/s">m/s</option>
+                    <option value="km/s">km/s</option>
+                    <option value="km/h">km/h</option>
+                    <option value="cm/s">cm/s</option>
+                    <option value="ft/s">ft/s</option>
+                    <option value="mi/s">mi/s</option>
+                    <option value="mi/h">mi/h</option>
+                    <option value="mach">mach</option>
+                    <option value="c">c</option>
+                  </select>
+                </p>
+                <br>
+                <p class="output"><label id="av">Average Orbital Velocity: </label>
+                  <select class="box" id="outputvav" onchange="Calculate()">
+                    <option value="m/s">m/s</option>
+                    <option value="km/s">km/s</option>
+                    <option value="km/h">km/h</option>
+                    <option value="cm/s">cm/s</option>
+                    <option value="ft/s">ft/s</option>
+                    <option value="mi/s">mi/s</option>
+                    <option value="mi/h">mi/h</option>
+                    <option value="mach">mach</option>
+                    <option value="c">c</option>
+                  </select>
+                </p>
+                <br>
+                <p class="output"><label id="period">Orbital Period: </label>
+                  <select class="box" id="outputp" onchange="Calculate()">
+                    <option value="s">s</option>
+                    <option value="yr">yr</option>
+                    <option value="mth">mth</option>
+                    <option value="d">d</option>
+                    <option value="hr">hr</option>
+                    <option value="min">min</option>
+                  </select>
+                </p>
+                <br>
+                <p class="output"><label id="ex">Hyperbolic Excess Velocity: </label>
+                  <select class="box" id="outputvex" onchange="Calculate()">
+                    <option value="m/s">m/s</option>
+                    <option value="km/s">km/s</option>
+                    <option value="km/h">km/h</option>
+                    <option value="cm/s">cm/s</option>
+                    <option value="ft/s">ft/s</option>
+                    <option value="mi/s">mi/s</option>
+                    <option value="mi/h">mi/h</option>
+                    <option value="mach">mach</option>
+                    <option value="c">c</option>
+                  </select>
+                </p>
+            </div>
+            <br>
+            <div class="output2">
+              <p class="output"><label id="sma">Semi-major Axis: </label>
+                <select class="box" id="outputsma" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="smn">Semi-minor Axis: </label>
+                <select class="box" id="outputsmn" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="rmin">Perihelion Distance: </label>
+                <select class="box" id="outputrmin" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="rmax">Aphelion Distance: </label>
+                <select class="box" id="outputrmax" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="vmax">Max. Orbital Velocity: </label>
+                <select class="box" id="outputvmax" onchange="Calculate()">
+                  <option value="m/s">m/s</option>
+                  <option value="km/s">km/s</option>
+                  <option value="km/h">km/h</option>
+                  <option value="cm/s">cm/s</option>
+                  <option value="ft/s">ft/s</option>
+                  <option value="mi/s">mi/s</option>
+                  <option value="mi/h">mi/h</option>
+                  <option value="mach">mach</option>
+                  <option value="c">c</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="vmin">Min. Orbital Velocity: </label>
+                <select class="box" id="outputvmin" onchange="Calculate()">
+                  <option value="m/s">m/s</option>
+                  <option value="km/s">km/s</option>
+                  <option value="km/h">km/h</option>
+                  <option value="cm/s">cm/s</option>
+                  <option value="ft/s">ft/s</option>
+                  <option value="mi/s">mi/s</option>
+                  <option value="mi/h">mi/h</option>
+                  <option value="mach">mach</option>
+                  <option value="c">c</option>
+                </select>
+              </p>
+              <br>
+              <p class="output"><label id="circum">Orbital Circumference: </label>
+                <select class="box" id="outputcircum" onchange="Calculate()">
+                  <option value="m">m</option>
+                  <option value="km">km</option>
+                  <option value="cm">cm</option>
+                  <option value="ft">ft</option>
+                  <option value="yd">yd</option>
+                  <option value="mi">mi</option>
+                  <option value="AU">AU</option>
+                  <option value="LD">LD</option>
+                  <option value="ly">ly</option>
+                  <option value="pc">pc</option>
+                  <option value="GR">GR</option>
+                </select>
+              </p>
+            </div>
+
+          </div>
+</body>
+</html>

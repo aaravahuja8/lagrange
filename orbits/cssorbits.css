@@ -1,0 +1,52 @@
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.textbox {
+  width:50%;
+  white-space:nowrap;
+  overflow-x:auto;
+  display:inline-block;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+#clear {
+  margin-left: 30px;
+}
+
+#name1 {
+  width: 15%;
+}
+
+#name2 {
+  width: 15%;
+}
+
+#diagram {
+  width: 35vw;
+  height: 35vw;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 650px) {
+  #diagram {
+    width: 75vw;
+    height: 75vw;
+  }
+
+  #name1 {
+    width: 50%;
+  }
+
+  #name2 {
+    width: 50%;
+  }
+}
+
