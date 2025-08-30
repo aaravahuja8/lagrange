@@ -1,0 +1,11 @@
+This website is public and can be accessed at orbitcalculators.com
+
+This website consists of 3 main sections, one which calculates the lagrange points of any given orbit, one which plots the shape and calculates various key parameters of any given object projected into orbit, and one which numerically solves high degree polynomials up of degrees up to 20.
+
+The Lagrange point calculator assumes the orbit is circular and takes the orbital radius and the masses of both objects as input and outputs the distance to all 5 lagrange points alogn with the velocity and period of the orbit. It also lets you choose which object to calculate distances from and a variety of units can be selected. Additionally, positions of the lagrange points are plotted on a diagram and it states which lagrange points if any are stable in the given orbit. There is also a list of preset orbits you can easily try out without having to input anything.
+
+The Orbit Shape calculator lets you project an object (M2) into an orbit around another object (M1) where it assumes the mass of M1 >>> M2. It takes the projection velocity, angle, distance, and both masses as input and outputs the orbit's shape, eccentricity, velocity required for circular orbit, average orbital velocity, orbital period, hyperbolic excess velocity, semi-major and semi-minor axes, perihelion and aphelion distances, maximum and minimum orbital veclocities, and the orbital circumference. It plots both objects and the shape of the orbit as calculated in a JSXGraph window, and the units are also customizable similarly to the Lagrange calculator. There is also a list of preset orbits you can easily try out without having to input anything.
+
+The High Degree Polynomial calculator lets you simply input any polynomial up to degree 20 and solves it for all possibile solutions. For polynomials of degree 1-4, the solution is calculated using standard analytical procedures with exact results. For polynomials of degree 5 and greater, Bairstow's method is used to take intial guesses and refine them into accurate solutions.
+
+Note: There is a bug when you run this in Safari where the preset units don't load in, thus showing NaN until units are manually selected in all of the output boxes.
